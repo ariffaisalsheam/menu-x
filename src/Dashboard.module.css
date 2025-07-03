@@ -1,0 +1,122 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  min-height: 100vh;
+  background-color: #FAFAFA; /* Off-White background */
+  font-family: 'Inter', sans-serif; /* Global font */
+  color: #333;
+}
+
+.welcomeMessage {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 50px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+  box-sizing: border-box;
+}
+
+.card h2 {
+  font-size: 1.3em;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.metric {
+  font-size: 3em;
+  font-weight: bold;
+  color: #717CB4; /* Slate Blue */
+}
+
+.manageMenuButton {
+  display: inline-block;
+  padding: 18px 40px;
+  background-color: #717CB4; /* Slate Blue */
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.4em;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.manageMenuButton:hover {
+  background-color: #5a6496; /* Darker Slate Blue */
+  transform: translateY(-2px);
+}
+
+.logoutButton {
+  background: none;
+  border: none;
+  color: #717CB4; /* Slate Blue */
+  font-size: 1.1em;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.logoutButton:hover {
+  background-color: rgba(113, 124, 180, 0.1);
+  color: #5a6496;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .welcomeMessage {
+    font-size: 2em;
+  }
+
+  .cardsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .manageMenuButton {
+    font-size: 1.2em;
+    padding: 15px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcomeMessage {
+    font-size: 1.8em;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .metric {
+    font-size: 2.5em;
+  }
+}

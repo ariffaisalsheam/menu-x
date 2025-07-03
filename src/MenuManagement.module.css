@@ -1,0 +1,258 @@
+.container {
+  font-family: 'Inter', sans-serif;
+  background-color: #FAFAFA;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading, .error, .authRequired, .noItems {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.error {
+  color: #d9534f; /* Red for error messages */
+}
+
+.title {
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.addButton {
+  background-color: #717CB4; /* Slate Blue */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.addButton:hover {
+  background-color: #5a6496; /* Darker Slate Blue */
+}
+
+.menuList {
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 50px;
+}
+
+.droppableArea {
+  min-height: 100px; /* Ensure droppable area is visible even if empty */
+}
+
+.menuItem {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.menuItem:hover {
+  background-color: #f9f9f9;
+}
+
+.itemInfo {
+  display: flex;
+  align-items: baseline;
+  flex-grow: 1;
+  gap: 15px;
+}
+
+.itemName {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.itemPrice {
+  font-size: 1.1em;
+  color: #717CB4; /* Slate Blue */
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.itemDescription {
+  font-size: 0.9em;
+  color: #666;
+  flex-basis: 100%;
+  margin-top: 5px;
+}
+
+.itemActions {
+  display: flex;
+  gap: 10px;
+}
+
+.editButton, .deleteButton {
+  background-color: #6c757d; /* Grey */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 0.9em;
+}
+
+.editButton:hover {
+  background-color: #5a6268;
+}
+
+.deleteButton {
+  background-color: #dc3545; /* Red */
+}
+
+.deleteButton:hover {
+  background-color: #c82333;
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+.modalContent h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 1.8em;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.inputGroup input[type="text"],
+.inputGroup input[type="number"],
+.inputGroup textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.inputGroup textarea {
+  resize: vertical;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.saveButton, .cancelButton {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.saveButton {
+  background-color: #717CB4; /* Slate Blue */
+  color: white;
+}
+
+.saveButton:hover {
+  background-color: #5a6496;
+}
+
+.cancelButton {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.cancelButton:hover {
+  background-color: #e0e0e0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2em;
+  }
+  .addButton {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+  .menuItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .itemInfo {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  .itemActions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .modalContent {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+  .title {
+    font-size: 1.8em;
+  }
+  .modalContent {
+    width: 95%;
+  }
+}

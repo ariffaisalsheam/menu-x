@@ -8,6 +8,27 @@
   align-items: center;
 }
 
+.dashboardLinkContainer {
+  width: 100%;
+  text-align: right;
+  padding-bottom: 20px;
+}
+
+.dashboardButton {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #717CB4; /* Slate Blue */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.dashboardButton:hover {
+  background-color: #5a6496; /* Darker Slate Blue */
+}
+
 .header {
   color: #333;
   margin-bottom: 30px;

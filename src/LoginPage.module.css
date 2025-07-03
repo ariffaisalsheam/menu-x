@@ -1,0 +1,98 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #FAFAFA; /* Off-White background */
+  font-family: 'Inter', sans-serif; /* Global font */
+}
+
+.loginCard {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.loginCard h1 {
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 2em;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: bold;
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box; /* Include padding and border in width */
+}
+
+.loginButton {
+  width: 100%;
+  padding: 12px;
+  background-color: #717CB4; /* Slate Blue */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.loginButton:hover {
+  background-color: #5a6496; /* Darker shade of Slate Blue */
+}
+
+.googleLoginButton {
+  width: 100%;
+  padding: 12px;
+  background-color: #4285F4; /* Google Blue */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.googleLoginButton:hover {
+  background-color: #357ae8; /* Darker Google Blue */
+}
+
+/* Optional: Add a placeholder for Google logo if needed later */
+.googleLoginButton img {
+  height: 20px; /* Adjust as needed */
+  width: auto;
+}
+
+/* Basic responsiveness */
+@media (max-width: 600px) {
+  .loginCard {
+    margin: 20px;
+    padding: 30px;
+  }
+}

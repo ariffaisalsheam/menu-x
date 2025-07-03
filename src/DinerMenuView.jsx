@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './DinerMenuView.module.css';
+import { useAuth } from './AuthContext'; // Import useAuth
 
 const DinerMenuView = ({ restaurantId }) => {
+  const { currentUser } = useAuth(); // Get currentUser from AuthContext
+  console.log("Current User in Menu View:", currentUser);
   const [restaurantName, setRestaurantName] = useState('');
   const [menuItems, setMenuItems] = useState([]);
 
@@ -32,6 +36,11 @@ const DinerMenuView = ({ restaurantId }) => {
 
   return (
     <div className={styles.container}>
+      {currentUser && ( // Conditionally render "Go to Dashboard" button
+        <div className={styles.dashboardLinkContainer}>
+          <Link to="/dashboard" className={styles.dashboardButton}>Go to Dashboard</Link>
+        </div>
+      )}
       <h1 className={styles.header}>{restaurantName}</h1>
       <div className={styles.menuList}>
         {menuItems.map((item, index) => (
