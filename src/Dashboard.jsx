@@ -6,7 +6,7 @@ import { useAuth } from './AuthContext';
 import styles from './Dashboard.module.css';
 
 const Dashboard = () => {
-  const { currentUser } = useAuth();
+  const { currentUser, isAdmin } = useAuth(); // Destructure isAdmin
 
   const handleLogout = async () => {
     try {
@@ -39,6 +39,12 @@ const Dashboard = () => {
       <Link to="/menu-management" className={styles.manageMenuButton}>
         Manage My Menu
       </Link>
+
+      {isAdmin && ( // Conditionally render Super Admin link
+        <Link to="/super-admin-dashboard" className={styles.manageMenuButton} style={{ marginTop: '10px' }}>
+          Super Admin Dashboard
+        </Link>
+      )}
 
       <button onClick={handleLogout} className={styles.logoutButton}>
         Logout

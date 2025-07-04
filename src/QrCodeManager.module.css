@@ -1,0 +1,201 @@
+.container {
+  font-family: 'Inter', sans-serif;
+  background-color: #FAFAFA;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading, .error, .authRequired, .noTables {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.error {
+  color: #d9534f; /* Red for error messages */
+}
+
+.title {
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.addTableForm {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.tableNameInput {
+  flex-grow: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.addTableButton {
+  background-color: #717CB4; /* Slate Blue */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.addTableButton:hover {
+  background-color: #5a6496; /* Darker Slate Blue */
+}
+
+.noTables {
+  margin-top: 20px;
+}
+
+.tablesList {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 600px;
+}
+
+.tableItem {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.tableName {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  flex-grow: 1;
+}
+
+.tableActions {
+  display: flex;
+  gap: 10px;
+}
+
+.showQrButton, .deleteTableButton {
+  background-color: #007bff; /* Blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+}
+
+.showQrButton:hover {
+  background-color: #0056b3;
+}
+
+.deleteTableButton {
+  background-color: #dc3545; /* Red */
+}
+
+.deleteTableButton:hover {
+  background-color: #c82333;
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  width: 90%;
+  max-width: 350px;
+  box-sizing: border-box;
+}
+
+.modalContent h2 {
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 1.8em;
+}
+
+.qrCodeContainer {
+  margin: 20px auto;
+  border: 1px solid #eee;
+  padding: 10px;
+  background-color: #fff;
+  display: inline-block; /* To center the div around the QR code */
+}
+
+.downloadButton, .closeButton {
+  background-color: #28a745; /* Green */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.downloadButton:hover {
+  background-color: #218838;
+}
+
+.closeButton {
+  background-color: #6c757d; /* Grey */
+  margin-top: 10px;
+}
+
+.closeButton:hover {
+  background-color: #5a6268;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .addTableForm {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .addTableButton {
+    width: 100%;
+  }
+  .tableItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .tableActions {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+}

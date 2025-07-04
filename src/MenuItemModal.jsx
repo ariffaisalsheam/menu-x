@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styles from './MenuManagement.module.css'; // Reusing styles from MenuManagement
+import { getFunctions, httpsCallable } from 'firebase/functions'; // Import Firebase Functions
+import { app } from './firebaseConfig'; // Import the app instance
 
 const MenuItemModal = ({ isOpen, onClose, onSave, itemData }) => {
   const [itemName, setItemName] = useState(itemData?.itemName || '');
   const [price, setPrice] = useState(itemData?.price || '');
   const [description, setDescription] = useState(itemData?.description || '');
+  const [isGenerating, setIsGenerating] = useState(false); // New state for AI button loading
 
   useEffect(() => {
     if (itemData) {
@@ -29,6 +32,27 @@ const MenuItemModal = ({ isOpen, onClose, onSave, itemData }) => {
       itemToSave.id = itemData.id; // Preserve ID for updates
     }
     onSave(itemToSave);
+  };
+
+  const handleGenerateDescription = async () => {
+    if (!itemName) {
+      alert("Please enter an Item Name before generating a description.");
+      return;
+    }
+
+    setIsGenerating(true);
+    try {
+      const functions = getFunctions(app); // Get Firebase Functions instance
+      const generateDescription = httpsCallable(functions, 'generateDescription'); // Reference your Cloud Function
+
+      const result = await generateDescription({ itemName: itemName });
+      setDescription(result.data.description); // Assuming the Cloud Function returns { description: "..." }
+    } catch (error) {
+      console.error("Error generating description:", error);
+      alert("Failed to generate description. Please try again.");
+    } finally {
+      setIsGenerating(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -67,6 +91,14 @@ const MenuItemModal = ({ isOpen, onClose, onSave, itemData }) => {
               onChange={(e) => setDescription(e.target.value)}
               rows="3"
             ></textarea>
+            <button
+              type="button"
+              onClick={handleGenerateDescription}
+              disabled={isGenerating || !itemName}
+              className={styles.aiButton} // Add a class for styling
+            >
+              {isGenerating ? 'Generating...' : '✨ Write with AI'}
+            </button>
           </div>
           <div className={styles.modalActions}>
             <button type="submit" className={styles.saveButton}>Save</button>

@@ -1,0 +1,117 @@
+.container {
+  font-family: 'Inter', sans-serif;
+  background-color: #FAFAFA;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading, .error, .authRequired, .noOrders {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.error {
+  color: #d9534f; /* Red for error messages */
+}
+
+.title {
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.ordersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px 0;
+}
+
+.orderCard {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease-in-out;
+}
+
+.orderCard:hover {
+  transform: translateY(-5px);
+}
+
+.orderCard h2 {
+  font-size: 1.5em;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.itemsList p {
+  margin: 5px 0;
+  font-size: 0.95em;
+  color: #555;
+}
+
+.totalAmount {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #717CB4; /* Slate Blue */
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.createdAt {
+  font-size: 0.85em;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.completeButton {
+  background-color: #28a745; /* Green */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.completeButton:hover {
+  background-color: #218838; /* Darker Green */
+}
+
+/* Conditional styling for Bill Requested orders */
+.billRequested {
+  border: 2px solid #717CB4; /* Slate Blue border */
+  box-shadow: 0 4px 20px rgba(113, 124, 180, 0.3); /* More prominent shadow */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ordersGrid {
+    grid-template-columns: 1fr; /* Single column on smaller screens */
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+  .orderCard {
+    padding: 15px;
+  }
+}
